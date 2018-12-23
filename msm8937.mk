@@ -348,6 +348,8 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc \
     init.safailnet.rc
+    init.spectrum.rc \
+    init.spectrum.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
