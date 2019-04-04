@@ -67,4 +67,27 @@ if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC" "$SECTION"
 fi
 
+DEVICE_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+
+patchelf --remove-needed libbacktrace.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+patchelf --remove-needed libunwind.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+patchelf --remove-needed libkeystore_binder.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+patchelf --remove-needed libsoftkeymasterdevice.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+patchelf --remove-needed libsoftkeymaster.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+patchelf --remove-needed libkeymaster_messages.so "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/gxfingerprint.default.so
+
+patchelf --remove-needed libbacktrace.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+patchelf --remove-needed libunwind.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+patchelf --remove-needed libkeystore_binder.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+patchelf --remove-needed libsoftkeymasterdevice.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+patchelf --remove-needed libsoftkeymaster.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+patchelf --remove-needed libkeymaster_messages.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpcmd
+
+patchelf --remove-needed libbacktrace.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --remove-needed libunwind.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --remove-needed libkeystore_binder.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --remove-needed libsoftkeymasterdevice.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --remove-needed libsoftkeymaster.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --remove-needed libkeymaster_messages.so "$DEVICE_BLOB_ROOT"/vendor/bin/gx_fpd
+
 "$MY_DIR"/setup-makefiles.sh
