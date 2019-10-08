@@ -13,6 +13,6 @@
 implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */ --> <resources>
-    <dimen name="status_bar_padding_start">12dp</dimen>
-    <dimen name="status_bar_padding_end">12dp</dimen> 
+    <dimen name="status_bar_padding_start">1dp</dimen>
+    <dimen name="status_bar_padding_end">1dp</dimen> 
 </resources>
