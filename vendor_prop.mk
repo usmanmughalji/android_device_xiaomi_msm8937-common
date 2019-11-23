@@ -155,4 +155,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Optimize
 PRODUCT_PROPERTY_OVERRIDES += \
-sys.use_fifo_ui=1
+    sys.use_fifo_ui=1
