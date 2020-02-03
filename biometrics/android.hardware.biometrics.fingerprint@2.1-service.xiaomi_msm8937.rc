@@ -19,17 +19,20 @@ on boot
     chown system system /dev/goodix_fp
     chmod 0644 /dev/goodix_fp
 
-    setprop persist.sys.fp.vendor none
-    start vendor.gx_fpd
+service goodix_script /vendor/bin/init.goodix.sh
+    class late_start
+    user root
+    oneshot
 
-on property:persist.sys.fp.vendor=switchf
-    stop vendor.gx_fpd
-    setprop persist.sys.fp.vendor searchf
+on property:persist.sys.fp.vendor=searchf
+    setprop persist.sys.fp.goodix 0
+    setprop persist.sys.fp.onstart 0
+    setprop ro.hardware.fingerprint searchf
     setprop ro.boot.fpsensor fpc
     start vendor.fps_hal
 
 on property:persist.sys.fp.vendor=goodix
-    setprop persist.sys.fp.onstart 1
+    start vendor.gx_fpd
     setprop ro.boot.fpsensor gdx
     setprop ro.hardware.fingerprint goodix
     start vendor.fps_hal

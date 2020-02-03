@@ -341,7 +341,8 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc \
-    init.safailnet.rc
+    init.safailnet.rc \
+    init.goodix.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
