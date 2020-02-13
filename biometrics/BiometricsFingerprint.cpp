@@ -187,8 +187,8 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
     int ret = mDevice->cancel(mDevice);
-    if (ret == 0) {
-        fingerprint_msg_t msg{};
+    if (ret == 0 && !is_goodix) {
+        fingerprint_msg_t msg;
         msg.type = FINGERPRINT_ERROR;
         msg.data.error = FINGERPRINT_ERROR_CANCELED;
         sInstance->notify(&msg);
