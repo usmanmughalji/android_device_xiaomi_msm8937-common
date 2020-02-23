@@ -43,4 +43,7 @@
     <!-- Whether to intercept inputs on screen off. -->
     <bool name="config_enableKeyHandler">true</bool>
 
+	<!-- Show battery icon in the QS Panel instead of in the header -->
+    <bool name="config_batteryInQSPanel">false</bool>
+
 </resources>
